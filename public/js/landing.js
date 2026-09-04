@@ -146,6 +146,36 @@ function bindNav() {
   window.addEventListener('resize', onScroll, { passive: true });
 }
 
+function animateCount(el, target, duration = 900) {
+  if (!el) return;
+  if (prefersReducedMotion() || target <= 0) {
+    el.textContent = target.toLocaleString();
+    return;
+  }
+
+  const start = performance.now();
+  function tick(now) {
+    const t = clamp((now - start) / duration, 0, 1);
+    const eased = 1 - (1 - t) ** 3;
+    el.textContent = Math.round(target * eased).toLocaleString();
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+async function loadFathomsCompleted() {
+  const el = document.getElementById('fathoms-completed');
+  if (!el || typeof API === 'undefined') return;
+
+  try {
+    const data = await API.getFathomsCompleted();
+    const count = Number(data.fathomsCompleted) || 0;
+    animateCount(el, count);
+  } catch {
+    el.textContent = '0';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   descentZone = document.getElementById('descent-zone');
   exploreScrollEl = document.getElementById('explore-view');
@@ -153,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.body.classList.add('view-game');
   bindNav();
+  loadFathomsCompleted();
 
   if (sessionStorage.getItem('fathoms-open-explore') === '1') {
     sessionStorage.removeItem('fathoms-open-explore');

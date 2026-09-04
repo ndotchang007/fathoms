@@ -5,6 +5,16 @@ const { getStatsData } = require('../services/statsService');
 
 const router = express.Router();
 
+router.get('/completed', async (req, res, next) => {
+  try {
+    const db = getDb();
+    const fathomsCompleted = await db.getTotalCompletedSessions();
+    res.json({ fathomsCompleted });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get('/:userId', sessionAuth, async (req, res, next) => {
   try {
     const db = getDb();

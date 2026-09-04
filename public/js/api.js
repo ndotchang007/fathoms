@@ -108,6 +108,10 @@ const API = {
     return this.request(`/stats/${userId}`);
   },
 
+  getFathomsCompleted() {
+    return this.request('/stats/completed');
+  },
+
   getAchievements() {
     return this.request('/achievements');
   },

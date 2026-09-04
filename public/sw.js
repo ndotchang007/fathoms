@@ -1,5 +1,5 @@
 /* Fathoms service worker — enables install; never rewrites the public website */
-const CACHE = 'fathoms-shell-v6';
+const CACHE = 'fathoms-shell-v7';
 const PRECACHE = [
   '/',
   '/app',
@@ -21,6 +21,7 @@ const PRECACHE = [
   '/js/api.js',
   '/js/auth.js',
   '/js/nav.js',
+  '/js/landing.js',
   '/js/pwa.js',
   '/js/pwa-install.js',
   '/assets/favicon.png',

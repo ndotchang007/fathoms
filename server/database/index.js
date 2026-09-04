@@ -134,6 +134,11 @@ function createJsonAdapter(store) {
       return sessions.length;
     },
 
+    async getTotalCompletedSessions() {
+      const sessions = await store.query('sessions', { status: 'completed' });
+      return sessions.length;
+    },
+
     async saveEvaluation(data) {
       const evaluation = {
         id: uuidv4(),
@@ -478,6 +483,13 @@ function createPostgresAdapter(pg) {
       const row = await pg.queryOne(
         `SELECT COUNT(*)::int AS count FROM sessions WHERE user_id = $1 AND status = 'completed'`,
         [userId]
+      );
+      return row?.count || 0;
+    },
+
+    async getTotalCompletedSessions() {
+      const row = await pg.queryOne(
+        `SELECT COUNT(*)::int AS count FROM sessions WHERE status = 'completed'`
       );
       return row?.count || 0;
     },
