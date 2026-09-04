@@ -22,7 +22,7 @@ function renderNav() {
   if (sidebarNav) {
     sidebarNav.innerHTML = NAV_ITEMS.map((item) => {
       const active = currentPath === item.href ? ' active' : '';
-      return `<a href="${item.href}" class="sidebar-link${active}" aria-current="${active ? 'page' : 'false'}">${ICONS[item.icon]}${item.label}</a>`;
+      return `<a href="${item.href}" class="sidebar-link${active}" aria-current="${active ? 'page' : 'false'}" title="${item.label}">${ICONS[item.icon]}<span class="sidebar-link-label">${item.label}</span></a>`;
     }).join('');
   }
 

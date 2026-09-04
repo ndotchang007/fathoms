@@ -36,6 +36,8 @@
   --radius-full: 999px;
 
   --sidebar-width: 220px;
+  --sidebar-collapsed-width: 64px;
+  --sidebar-transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   --content-max: 920px;
   --page-gutter: 3rem;
 
