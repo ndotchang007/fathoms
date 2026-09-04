@@ -1,5 +1,5 @@
 /* Fathoms service worker — enables install; never rewrites the public website */
-const CACHE = 'fathoms-shell-v7';
+const CACHE = 'fathoms-shell-v8';
 const PRECACHE = [
   '/',
   '/app',

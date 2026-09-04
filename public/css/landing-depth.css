@@ -224,37 +224,62 @@ body.nav-menu-open {
   gap: 0.65rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.landing-hero-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.landing-completed-section {
+  padding: clamp(4rem, 10vw, 6.5rem) max(clamp(1.25rem, 5vw, 3rem), var(--safe-right)) clamp(4rem, 10vw, 6.5rem) max(clamp(1.25rem, 5vw, 3rem), var(--safe-left));
+  border-top: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 100%, rgba(107, 140, 184, 0.08), transparent 55%),
+    linear-gradient(180deg, #090b0e 0%, #0a0e14 100%);
+}
+
+.landing-completed-inner {
+  max-width: 28rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.landing-completed-section .landing-eyebrow {
+  margin-bottom: 0.85rem;
+}
+
+.landing-completed-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.landing-completed-lead {
+  color: var(--text-secondary);
+  line-height: 1.55;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 32ch;
+  margin-inline: auto;
 }
 
 .landing-completed {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
-  margin-bottom: 1.25rem;
 }
 
 .landing-completed-val {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
-  line-height: 1;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
   color: var(--text);
-}
-
-.landing-completed-lab {
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.landing-hero-note {
-  font-size: 0.82rem;
-  color: var(--text-muted);
 }
 
 .landing-depth .glass-nav .nav-cta {
