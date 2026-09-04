@@ -1,0 +1,420 @@
+Fathoms Practice Topics
+Generated: 2026-08-30
+
+=== GENERAL (general) ===
+Broad topics anyone might encounter.
+
+1. Why do airplanes fly?
+   Prompt: Explain the basic principles that allow an airplane to generate lift and remain in the air.
+   Difficulty: Medium
+
+2. How does the internet work?
+   Prompt: Describe how data travels across the internet from one device to another.
+   Difficulty: Medium
+
+3. What is artificial intelligence?
+   Prompt: Explain what AI is and how modern machine learning systems work.
+   Difficulty: Medium
+
+4. Why do we need sleep?
+   Prompt: Explain why sleep is essential for health and cognition.
+   Difficulty: Easy
+
+5. How do vaccines work?
+   Prompt: Explain how vaccines train the immune system to fight disease.
+   Difficulty: Medium
+
+6. What is climate change?
+   Prompt: Explain the causes and effects of global climate change.
+   Difficulty: Medium
+
+7. How does compounding interest work?
+   Prompt: Describe how compound interest grows savings over time.
+   Difficulty: Easy
+
+8. What is critical thinking?
+   Prompt: Define critical thinking and explain why it matters in everyday life.
+   Difficulty: Easy
+
+9. How do habits form?
+   Prompt: Describe the science behind habit formation and how habits can be changed.
+   Difficulty: Medium
+
+10. What makes a good argument?
+   Prompt: Explain the elements of a logical, persuasive argument.
+   Difficulty: Medium
+
+
+=== MUST-KNOW (must-know) ===
+Terms people reference but rarely understand.
+
+1. What is Manifest Destiny?
+   Prompt: Explain what Manifest Destiny meant in American history and why the phrase still appears in debates today.
+   Difficulty: Medium
+
+2. What does "deus ex machina" mean?
+   Prompt: Explain the literary term deus ex machina and give examples of how it is used in stories and criticism.
+   Difficulty: Easy
+
+3. What is a Catch-22?
+   Prompt: Explain what a Catch-22 is, where the phrase comes from, and how it applies beyond the novel.
+   Difficulty: Medium
+
+4. What is juxtaposition?
+   Prompt: Define juxtaposition and explain how artists and writers use it to create meaning.
+   Difficulty: Easy
+
+5. What is gaslighting?
+   Prompt: Explain what gaslighting means in psychology and why the term has become widely used.
+   Difficulty: Medium
+
+6. What is Occam's razor?
+   Prompt: Explain Occam's razor and how it is used — and misused — in science and everyday reasoning.
+   Difficulty: Medium
+
+7. What makes something Kafkaesque?
+   Prompt: Explain what people mean when they call a situation Kafkaesque.
+   Difficulty: Medium
+
+8. What is the tragedy of the commons?
+   Prompt: Explain the tragedy of the commons and how it applies to environmental and social problems.
+   Difficulty: Medium
+
+9. What is Stockholm syndrome?
+   Prompt: Explain Stockholm syndrome, its origins, and what psychologists think about the concept today.
+   Difficulty: Medium
+
+10. What is a Pyrrhic victory?
+   Prompt: Explain what a Pyrrhic victory is and give historical or modern examples.
+   Difficulty: Easy
+
+11. What is Machiavellianism?
+   Prompt: Explain what it means to call someone Machiavellian and how that differs from reading Machiavelli himself.
+   Difficulty: Medium
+
+12. What is schadenfreude?
+   Prompt: Define schadenfreude and discuss why people experience pleasure in others' misfortune.
+   Difficulty: Easy
+
+
+=== ULTRA-NICHE (ultra-niche) ===
+Obscure topics you probably have not heard of.
+
+1. What is the Antikythera mechanism?
+   Prompt: Explain what the Antikythera mechanism is and why it surprises historians of technology.
+   Difficulty: Hard
+
+2. What was the Great Emu War?
+   Prompt: Describe Australia's Great Emu War and what it reveals about policy and ecology.
+   Difficulty: Medium
+
+3. What was the Velikovsky affair?
+   Prompt: Explain the Velikovsky affair and the clash between speculative history and scientific publishing.
+   Difficulty: Hard
+
+4. What is sonoluminescence?
+   Prompt: Explain sonoluminescence and why it puzzles physicists.
+   Difficulty: Hard
+
+5. What was the Kowloon Walled City?
+   Prompt: Describe the Kowloon Walled City and its unique political and social status.
+   Difficulty: Medium
+
+6. What is the doctrine of signatures?
+   Prompt: Explain the doctrine of signatures and its role in pre-modern medicine.
+   Difficulty: Hard
+
+7. What is the Voynich manuscript?
+   Prompt: Describe the Voynich manuscript and the main theories about its origin.
+   Difficulty: Hard
+
+8. What is the Baader-Meinhof phenomenon?
+   Prompt: Explain the Baader-Meinhof phenomenon and the cognitive biases behind it.
+   Difficulty: Easy
+
+9. What is the Codex Seraphinianus?
+   Prompt: Describe the Codex Seraphinianus and why artists and linguists find it fascinating.
+   Difficulty: Hard
+
+10. What is the Oak Island money pit mystery?
+   Prompt: Summarize the Oak Island mystery and why treasure hunters keep digging.
+   Difficulty: Medium
+
+
+=== POLITICAL (political) ===
+Political debates and ideologies, explained in depth.
+
+1. Should universal basic income be adopted?
+   Prompt: Present the strongest arguments for and against universal basic income.
+   Difficulty: Hard
+
+2. Is affirmative action justified?
+   Prompt: Explain the debate over affirmative action in education and employment.
+   Difficulty: Hard
+
+3. Should the Electoral College be abolished?
+   Prompt: Argue both sides of whether the United States should keep the Electoral College.
+   Difficulty: Medium
+
+4. Is free speech absolute?
+   Prompt: Explain how different societies balance free speech with harm, safety, and order.
+   Difficulty: Hard
+
+5. Should billionaires exist?
+   Prompt: Present the moral and economic arguments about extreme wealth concentration.
+   Difficulty: Hard
+
+6. Is nationalism harmful or necessary?
+   Prompt: Debate whether nationalism is a constructive or destructive force in modern politics.
+   Difficulty: Hard
+
+7. Should drug prohibition end?
+   Prompt: Explain the policy debate over decriminalization and legalization of drugs.
+   Difficulty: Hard
+
+8. Is NATO still relevant?
+   Prompt: Argue whether NATO remains necessary in the 21st century.
+   Difficulty: Medium
+
+9. Should AI development be government-regulated?
+   Prompt: Present the case for and against strong government regulation of AI.
+   Difficulty: Hard
+
+10. Is two-party democracy failing?
+   Prompt: Explain criticisms of two-party systems and alternatives proposed by reformers.
+   Difficulty: Hard
+
+
+=== HISTORY (history) ===
+Civilizations, events, and historical debates.
+
+1. What caused the fall of the Roman Empire?
+   Prompt: Explain the major theories about why the Western Roman Empire collapsed.
+   Difficulty: Hard
+
+2. What was the Bronze Age collapse?
+   Prompt: Describe the Bronze Age collapse and what historians think caused it.
+   Difficulty: Hard
+
+3. What was the Taiping Rebellion?
+   Prompt: Explain the Taiping Rebellion and its impact on Qing China.
+   Difficulty: Hard
+
+4. What was the Haitian Revolution?
+   Prompt: Describe the Haitian Revolution and why it mattered globally.
+   Difficulty: Hard
+
+5. What was the Columbian Exchange?
+   Prompt: Explain the Columbian Exchange and its biological and cultural consequences.
+   Difficulty: Medium
+
+6. What caused World War I?
+   Prompt: Explain the main causes and triggers of World War I.
+   Difficulty: Medium
+
+7. What was the Meiji Restoration?
+   Prompt: Describe the Meiji Restoration and how Japan modernized so rapidly.
+   Difficulty: Medium
+
+8. What was the Islamic Golden Age?
+   Prompt: Explain the Islamic Golden Age and its contributions to science and philosophy.
+   Difficulty: Medium
+
+9. What was the Scramble for Africa?
+   Prompt: Describe the Scramble for Africa and its long-term consequences.
+   Difficulty: Medium
+
+10. What was Prohibition in the United States?
+   Prompt: Explain American Prohibition, why it passed, and why it failed.
+   Difficulty: Medium
+
+
+=== MECHANICS (mechanics) ===
+How things work — engineering, devices, and movements.
+
+1. How does a transistor work?
+   Prompt: Explain how a transistor amplifies or switches electronic signals.
+   Difficulty: Hard
+
+2. How does Grand Seiko's Spring Drive work?
+   Prompt: Explain the Spring Drive movement and what makes it unique among watches.
+   Difficulty: Hard
+
+3. How does a jet engine work?
+   Prompt: Describe how a jet engine produces thrust.
+   Difficulty: Medium
+
+4. How does a mechanical watch escapement work?
+   Prompt: Explain the escapement in a mechanical watch and why it matters.
+   Difficulty: Hard
+
+5. How does a diesel engine differ from gasoline?
+   Prompt: Compare diesel and gasoline engines and explain their different combustion cycles.
+   Difficulty: Medium
+
+6. How does a turbofan engine work?
+   Prompt: Explain how a modern turbofan engine balances bypass air and core thrust.
+   Difficulty: Hard
+
+7. How does a canal lock work?
+   Prompt: Explain how canal locks raise and lower boats between different water levels.
+   Difficulty: Easy
+
+8. How does a differential gear work?
+   Prompt: Explain how a differential allows car wheels to rotate at different speeds.
+   Difficulty: Hard
+
+9. How does hydraulic braking work?
+   Prompt: Describe how hydraulic brake systems transfer force from pedal to wheels.
+   Difficulty: Medium
+
+10. How does a nuclear reactor control a chain reaction?
+   Prompt: Explain how a nuclear reactor sustains and controls fission.
+   Difficulty: Hard
+
+
+=== SCIENCE (science) ===
+Scientific concepts and natural phenomena.
+
+1. How does photosynthesis work?
+   Prompt: Describe how plants convert sunlight into chemical energy.
+   Difficulty: Medium
+
+2. What is quantum entanglement?
+   Prompt: Explain quantum entanglement in plain language and why it puzzled Einstein.
+   Difficulty: Hard
+
+3. How do black holes form?
+   Prompt: Explain how black holes are created and what makes them unique.
+   Difficulty: Hard
+
+4. What is CRISPR?
+   Prompt: Explain CRISPR gene editing and its promise and risks.
+   Difficulty: Medium
+
+5. How does the immune system work?
+   Prompt: Explain how the human immune system defends against pathogens.
+   Difficulty: Medium
+
+6. What is plate tectonics?
+   Prompt: Describe plate tectonics and how it explains earthquakes and volcanoes.
+   Difficulty: Medium
+
+7. How does DNA replication work?
+   Prompt: Explain the process by which cells copy their DNA before division.
+   Difficulty: Hard
+
+8. What is dark matter?
+   Prompt: Explain what dark matter is and why physicists think it exists.
+   Difficulty: Hard
+
+
+=== CULTURE (culture) ===
+Arts, literature, media, and cultural ideas.
+
+1. What defined Renaissance art?
+   Prompt: Explain what defined Renaissance art and name its major figures.
+   Difficulty: Medium
+
+2. How did jazz originate?
+   Prompt: Describe the origins and evolution of jazz music.
+   Difficulty: Medium
+
+3. What is film noir?
+   Prompt: Explain the characteristics and significance of film noir.
+   Difficulty: Hard
+
+4. What is magical realism?
+   Prompt: Define magical realism and explain how it differs from fantasy.
+   Difficulty: Medium
+
+5. What is the hero's journey?
+   Prompt: Explain Joseph Campbell's hero's journey and how storytellers use it.
+   Difficulty: Medium
+
+6. What is baroque music?
+   Prompt: Describe the baroque period in music and its major composers.
+   Difficulty: Medium
+
+7. What is postmodernism in architecture?
+   Prompt: Explain postmodern architecture and how it reacted against modernism.
+   Difficulty: Hard
+
+8. What is the Bechdel test?
+   Prompt: Explain the Bechdel test and what it does and does not measure about films.
+   Difficulty: Easy
+
+
+=== PHILOSOPHY (philosophy) ===
+Ethics, thought experiments, and big questions.
+
+1. What is the trolley problem?
+   Prompt: Explain the trolley problem and what it reveals about ethics.
+   Difficulty: Medium
+
+2. What is existentialism?
+   Prompt: Describe the core ideas of existentialist philosophy.
+   Difficulty: Hard
+
+3. What is stoicism?
+   Prompt: Explain the key principles of Stoic philosophy.
+   Difficulty: Medium
+
+4. What is the free will vs determinism debate?
+   Prompt: Discuss the philosophical debate around free will and determinism.
+   Difficulty: Hard
+
+5. What is utilitarianism?
+   Prompt: Explain the ethical framework of utilitarianism.
+   Difficulty: Medium
+
+6. What is the veil of ignorance?
+   Prompt: Explain John Rawls' veil of ignorance and how it shapes theories of justice.
+   Difficulty: Medium
+
+7. What is moral relativism?
+   Prompt: Discuss moral relativism and its main criticisms.
+   Difficulty: Hard
+
+8. What is the ship of Theseus?
+   Prompt: Explain the ship of Theseus paradox and what it asks about identity.
+   Difficulty: Medium
+
+
+=== ECONOMICS (economics) ===
+Markets, policy, and economic theory.
+
+1. What is supply and demand?
+   Prompt: Explain the basic economic principle of supply and demand.
+   Difficulty: Easy
+
+2. How does inflation work?
+   Prompt: Describe what inflation is and what causes it.
+   Difficulty: Medium
+
+3. What is comparative advantage?
+   Prompt: Explain comparative advantage in international trade.
+   Difficulty: Hard
+
+4. What is game theory?
+   Prompt: Describe game theory and how it applies to strategic decision-making.
+   Difficulty: Hard
+
+5. What is quantitative easing?
+   Prompt: Explain quantitative easing and why central banks use it.
+   Difficulty: Hard
+
+6. What is the Laffer curve?
+   Prompt: Explain the Laffer curve and the debate over tax cuts and revenue.
+   Difficulty: Medium
+
+7. What is the difference between monopoly and oligopoly?
+   Prompt: Compare monopoly and oligopoly market structures with real-world examples.
+   Difficulty: Medium
+
+8. What is GDP and what are its limits?
+   Prompt: Explain what GDP measures and why economists criticize it.
+   Difficulty: Medium
+
+
+Total topics: 94

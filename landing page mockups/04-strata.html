@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup 04 — Strata · Fathoms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    :root { --font-display: "Sora", sans-serif; }
+
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      display: grid;
+      align-content: center;
+      padding: calc(var(--header-h) + 3rem) clamp(1.25rem, 5vw, 3rem);
+      overflow: hidden;
+    }
+
+    /* Geological strata layers as background */
+    .strata-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .strata-bg .band {
+      position: absolute; left: 0; right: 0;
+      border-top: 1px solid rgba(107, 140, 184, 0.12);
+    }
+    .strata-bg .band:nth-child(1) {
+      top: 0; height: 22%;
+      background: linear-gradient(180deg, #0e1219, #0c1016);
+    }
+    .strata-bg .band:nth-child(2) {
+      top: 22%; height: 20%;
+      background: linear-gradient(180deg, #0c1016, #0a0e14);
+    }
+    .strata-bg .band:nth-child(3) {
+      top: 42%; height: 20%;
+      background: linear-gradient(180deg, #0a0e14, #080c12);
+    }
+    .strata-bg .band:nth-child(4) {
+      top: 62%; height: 20%;
+      background: linear-gradient(180deg, #080c12, #060a0f);
+    }
+    .strata-bg .band:nth-child(5) {
+      top: 82%; height: 18%;
+      background: linear-gradient(180deg, #060a0f, #04080c);
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 42rem;
+    }
+    .hero .display {
+      font-family: var(--font-display);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero .lead { margin-bottom: 2rem; }
+    .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .strata-stack {
+      border-top: 1px solid var(--border);
+    }
+    .stratum {
+      min-height: 65vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem clamp(1.25rem, 5vw, 3rem);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .stratum { grid-template-columns: 1fr; min-height: auto; }
+      .stratum-visual { order: -1; height: 180px !important; }
+    }
+
+    .stratum:nth-child(1) { background: #0c1016; }
+    .stratum:nth-child(2) { background: #0a0e14; }
+    .stratum:nth-child(3) { background: #080c12; }
+    .stratum:nth-child(4) { background: #060a0f; }
+
+    .stratum-visual {
+      height: 280px;
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-muted);
+    }
+    .stratum-visual .layer-v {
+      position: absolute; left: 0; right: 0;
+      border-top: 1px solid rgba(107, 140, 184, 0.15);
+    }
+    .stratum-visual .layer-v:nth-child(1) { bottom: 0; height: 25%; background: rgba(107, 140, 184, 0.08); }
+    .stratum-visual .layer-v:nth-child(2) { bottom: 25%; height: 25%; background: rgba(107, 140, 184, 0.06); }
+    .stratum-visual .layer-v:nth-child(3) { bottom: 50%; height: 25%; background: rgba(107, 140, 184, 0.04); }
+    .stratum-visual .layer-v:nth-child(4) { bottom: 75%; height: 25%; background: rgba(107, 140, 184, 0.02); }
+
+    .stratum h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.65rem;
+    }
+    .stratum p { color: var(--text-secondary); line-height: 1.55; }
+
+    .crest.slice--light {
+      min-height: 55vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background: #e2e7ee;
+      color: #0d1016;
+    }
+    .crest h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .crest p { color: #4d5666; margin-bottom: 1.75rem; }
+  </style>
+</head>
+<body class="slice--dark">
+  <header class="glass-header">
+    <a class="logo-lockup" href="index.html">
+      <img src="assets/logo.svg" alt="Fathoms logo">
+      <div>
+        <div class="word">Fathoms</div>
+        <div class="slogan">Fathom anything</div>
+      </div>
+    </a>
+    <nav class="glass-nav">
+      <a href="#strata">Strata</a>
+      <a href="#crest">Start</a>
+      <a href="#" class="nav-cta">Get started</a>
+    </nav>
+  </header>
+
+  <section class="hero slice--dark page-pad">
+    <div class="strata-bg" aria-hidden="true">
+      <div class="band"></div><div class="band"></div><div class="band"></div>
+      <div class="band"></div><div class="band"></div>
+    </div>
+    <div class="hero-inner">
+      <p class="eyebrow">Strata · Layers · Accumulation</p>
+      <h1 class="display">Understanding builds in layers.</h1>
+      <p class="lead">Every session deposits another stratum of knowledge. Fathoms maps your progress from surface skim to bedrock comprehension. Fathom anything.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#">Start building</a>
+        <a class="btn btn-ghost" href="#strata">Read the layers</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="strata-stack slice--dark" id="strata">
+    <article class="stratum">
+      <div>
+        <p class="eyebrow">01 · Discover</p>
+        <h2>Topsoil</h2>
+        <p>The first contact — a topic lands on the surface and invites exploration.</p>
+      </div>
+      <div class="stratum-visual" aria-hidden="true">
+        <div class="layer-v"></div><div class="layer-v"></div><div class="layer-v"></div><div class="layer-v"></div>
+      </div>
+    </article>
+    <article class="stratum">
+      <div>
+        <p class="eyebrow">02 · Research</p>
+        <h2>Sediment</h2>
+        <p>Notes and sources settle. Context compresses into something solid.</p>
+      </div>
+      <div class="stratum-visual" aria-hidden="true">
+        <div class="layer-v"></div><div class="layer-v"></div><div class="layer-v"></div><div class="layer-v"></div>
+      </div>
+    </article>
+    <article class="stratum">
+      <div>
+        <p class="eyebrow">03 · Speak</p>
+        <h2>Bedrock speech</h2>
+        <p>Spoken clarity reveals what's actually formed beneath the surface.</p>
+      </div>
+      <div class="stratum-visual" aria-hidden="true">
+        <div class="layer-v"></div><div class="layer-v"></div><div class="layer-v"></div><div class="layer-v"></div>
+      </div>
+    </article>
+    <article class="stratum">
+      <div>
+        <p class="eyebrow">04 · Improve</p>
+        <h2>Core refinement</h2>
+        <p>Feedback polishes the layers. Retry and watch the formation deepen.</p>
+      </div>
+      <div class="stratum-visual" aria-hidden="true">
+        <div class="layer-v"></div><div class="layer-v"></div><div class="layer-v"></div><div class="layer-v"></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="crest slice--light" id="crest">
+    <div>
+      <h2>Fathom anything.</h2>
+      <p>Layer by layer. Session by session.</p>
+      <a class="btn btn-primary" href="#">Initialize profile</a>
+    </div>
+  </section>
+
+  <footer class="site-footer slice--dark">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo.svg" alt="">
+          <strong>Fathoms</strong>
+        </div>
+        <p>Fathom anything. Knowledge that compounds in layers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#">Practice</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Achievements</a>
+        <span>Stats</span>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="#">How it works</a>
+        <a href="#">Protocol</a>
+        <span>Methodology</span>
+        <span>Research tips</span>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <span>About</span>
+        <span>Careers</span>
+        <span>Press</span>
+        <span>Contact</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Noah Chang · Developer build</span>
+      <span>Inspired by <a href="https://unprompted.cool" target="_blank" rel="noopener">unprompted.cool</a></span>
+    </div>
+  </footer>
+</body>
+</html>

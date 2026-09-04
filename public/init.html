@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Fathoms">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#090b0e">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <title>Get started — Fathoms</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/landing.css">
+  <script src="/js/pwa.js"></script>
+</head>
+<body class="landing-body init-body">
+  <main class="init-panel page-enter">
+    <a href="/" class="init-back" id="init-back">← Back</a>
+    <p class="landing-eyebrow">Create profile</p>
+    <h1 class="init-title">Track your fathoms</h1>
+    <p class="init-lead">Pick a username and password. No email needed yet.</p>
+
+    <form id="init-form" class="init-form" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          maxlength="24"
+          minlength="2"
+          autocomplete="username"
+          placeholder="e.g. Nova"
+          required
+          autofocus
+        >
+        <p class="form-hint">2–24 characters. Letters, numbers, spaces, hyphens.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          minlength="6"
+          autocomplete="new-password"
+          placeholder="At least 6 characters"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-password">Confirm password</label>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirmPassword"
+          minlength="6"
+          autocomplete="new-password"
+          placeholder="Repeat your password"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="focus-area">Primary focus <span class="optional">(optional)</span></label>
+        <select id="focus-area" name="focusArea">
+          <option value="">No preference</option>
+          <option value="speaking">Speaking</option>
+          <option value="comprehension">Comprehension</option>
+          <option value="depth">Depth</option>
+          <option value="reasoning">Reasoning</option>
+          <option value="clarity">Clarity</option>
+          <option value="organization">Organization</option>
+          <option value="vocabulary">Vocabulary</option>
+        </select>
+      </div>
+
+      <p id="init-error" class="error-banner" style="display:none" role="alert"></p>
+
+      <button type="submit" id="init-submit" class="btn btn-primary btn-lg" style="width:100%">
+        Track your fathoms
+      </button>
+    </form>
+
+    <p class="init-note">Up to 3 accounts per device. Already have one? <a href="/login">Log in</a></p>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/pages/init.js"></script>
+</body>
+</html>

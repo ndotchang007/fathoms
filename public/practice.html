@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Fathoms">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#090b0e">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <title>Practice — Fathoms</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <a href="/practice" class="sidebar-logo" aria-label="Fathoms home">
+        <img class="logo-for-dark" src="/assets/logo-dark.png" alt="">
+        <img class="logo-for-light" src="/assets/logo-light.png" alt="">
+      </a>
+      <div class="sidebar-tagline">Fathom anything.</div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Main navigation"></nav>
+      <div class="sidebar-footer">Fathoms</div>
+    </aside>
+
+    <main class="main-content main-content--practice page-enter">
+      <div class="practice-layout">
+        <div class="practice-progress">
+          <div class="tri-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" aria-label="Practice progress">
+            <div class="tri-bar in-progress" data-bar="0"><div class="tri-bar-fill"></div></div>
+            <div class="tri-bar empty" data-bar="1"><div class="tri-bar-fill"></div></div>
+            <div class="tri-bar empty" data-bar="2"><div class="tri-bar-fill"></div></div>
+            <div class="tri-bar empty" data-bar="3"><div class="tri-bar-fill"></div></div>
+          </div>
+          <div class="tri-progress-labels" aria-hidden="true">
+            <span class="tri-label active" data-step="1">Prompt</span>
+            <span class="tri-label" data-step="2">Research</span>
+            <span class="tri-label" data-step="3">Speak</span>
+            <span class="tri-label" data-step="4">Results</span>
+          </div>
+          <div id="practice-goal-banner" class="practice-goal-banner" role="status" aria-live="polite">
+            <span class="practice-goal-label">Today’s goal</span>
+            <span class="practice-goal-text" id="practice-goal-text">Improve clarity and reduce the speed of speech.</span>
+          </div>
+        </div>
+
+        <!-- STEP 1: PROMPT -->
+        <section id="step-prompt" class="practice-step practice-step--centered active" aria-label="Topic prompt">
+          <div class="practice-stage topic-card" id="topic-card">
+            <div class="topic-shuffle-stage" id="topic-shuffle-stage" aria-live="polite">
+              <span class="badge mb-2" id="topic-badge">Loading topic…</span>
+              <div class="topic-reel" id="topic-reel" aria-hidden="true"></div>
+              <h2 id="topic-title" class="topic-title-display">Loading…</h2>
+              <p id="topic-prompt" class="topic-prompt-display"></p>
+            </div>
+            <div class="topic-meta topic-meta--centered" id="topic-meta" hidden>
+              <span class="badge" id="topic-category"></span>
+              <span class="badge" id="topic-difficulty"></span>
+              <span class="badge" id="topic-research-time"></span>
+              <span class="badge">Speaking: up to 5 min</span>
+            </div>
+            <div class="topic-actions topic-actions--centered" id="topic-actions" hidden>
+              <button id="start-research" class="btn btn-primary topic-action-btn">Start Research</button>
+              <button id="another-topic" class="btn btn-secondary topic-action-btn">Another topic</button>
+              <div class="category-dropdown">
+                <select id="category-select" class="category-select" aria-label="Topic category"></select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 2: RESEARCH -->
+        <section id="step-research" class="practice-step practice-step--research" aria-label="Research">
+          <header class="research-header">
+            <div class="research-header-text">
+              <p class="research-kicker">Research</p>
+              <h2 id="research-topic-title" class="research-title">Research</h2>
+            </div>
+            <div class="research-timer" id="research-timer" aria-live="polite">05:00</div>
+          </header>
+
+          <div class="research-body">
+            <div class="research-layout">
+              <div class="research-panel research-panel--sources" id="research-sources-panel">
+                <div class="research-sources-list" id="research-sources-list">
+                  <div class="research-search">
+                    <input type="search" class="search-box" id="web-search" placeholder="Search these sources…" aria-label="Search topic sources">
+                    <div id="search-results" class="search-results"></div>
+                  </div>
+                  <div class="research-section research-section--fill research-section--sources">
+                    <h3 class="research-section-title">Sources</h3>
+                    <div id="sources-list" class="sources-list"></div>
+                  </div>
+                </div>
+
+                <div id="source-viewer" class="source-viewer" hidden aria-hidden="true">
+                  <div class="source-viewer-panel" role="region" aria-labelledby="source-viewer-title">
+                    <header class="source-viewer-header">
+                      <button type="button" class="btn btn-ghost source-viewer-back" id="source-viewer-back" aria-label="Back to sources">
+                        <span aria-hidden="true">←</span> Exit
+                      </button>
+                      <div class="source-viewer-heading">
+                        <p class="source-viewer-site" id="source-viewer-site"></p>
+                        <h3 class="source-viewer-title" id="source-viewer-title"></h3>
+                      </div>
+                    </header>
+                    <div class="source-viewer-body" id="source-viewer-body">
+                      <div class="source-viewer-status" id="source-viewer-status" hidden></div>
+                      <article class="source-article" id="source-viewer-article" hidden></article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="research-panel research-panel--notes">
+                <div class="research-section research-section--fill">
+                  <div class="research-section-head">
+                    <h3 class="research-section-title">Notes</h3>
+                    <span class="notes-saved" id="notes-status"></span>
+                  </div>
+                  <textarea class="notes-area" id="notes" placeholder="Jot down key facts, connections, and arguments…" aria-label="Research notes"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="research-footer">
+            <button id="ready-to-speak" class="btn btn-primary btn-lg">Ready to speak</button>
+          </div>
+        </section>
+
+        <!-- STEP 3: SPEAK -->
+        <section id="step-speak" class="practice-step practice-step--centered" aria-label="Speaking">
+          <div class="speak-container">
+            <h3 class="speak-heading" id="speak-heading">Explain your topic</h3>
+
+            <div id="mic-error" class="error-banner" style="display:none"></div>
+
+            <div class="speak-timer-row">
+              <div class="speak-timer" id="speak-timer" aria-live="polite">00:00</div>
+              <div class="speak-timer-meta">
+                <span id="speak-timer-hint">Tap the mic to begin</span>
+                <span class="speak-timer-max">/ 05:00 max</span>
+              </div>
+            </div>
+
+            <div class="transcript-panel" id="transcript-panel">
+              <div class="transcript-header">
+                <span class="section-title" style="margin:0">Live Transcript</span>
+                <span class="transcript-badge" id="transcript-status">Waiting...</span>
+              </div>
+              <div class="transcript-body" id="transcript-body" aria-live="polite">
+                <p class="transcript-placeholder">Your words will appear here as you speak...</p>
+              </div>
+            </div>
+
+            <div class="speak-notes-panel" id="speak-notes-panel" hidden>
+              <div class="transcript-header">
+                <span class="section-title" style="margin:0">Your Notes</span>
+              </div>
+              <div class="speak-notes-body" id="speak-notes-body"></div>
+            </div>
+
+            <button id="mic-button" class="mic-button" aria-label="Tap to start recording">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+            </button>
+
+            <div class="waveform" id="waveform" aria-hidden="true"></div>
+
+            <div class="speak-controls">
+              <button id="restart-recording" class="btn btn-ghost" type="button" hidden>Restart</button>
+              <button id="submit-recording" class="btn btn-resurface btn-lg" type="button" hidden>Resurface</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 4: RESULTS -->
+        <section id="step-results" class="practice-step" aria-label="Results">
+          <div id="processing" class="depth-eval" hidden aria-live="polite" aria-busy="true">
+            <p class="depth-eval-headline">diving deep, hang tight</p>
+            <div class="depth-eval-core">
+              <div class="depth-eval-side depth-eval-side--left">
+                <span class="depth-eval-label">depth</span>
+                <span class="depth-eval-distance" id="eval-depth">1 fathom</span>
+              </div>
+              <div class="depth-eval-gauge" aria-hidden="true">
+                <div class="depth-eval-dots" id="eval-dots"></div>
+              </div>
+              <div class="depth-eval-side depth-eval-side--right">
+                <span class="depth-eval-label">status</span>
+                <p class="depth-eval-status" id="eval-status">Evaluating your response…</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="results-content" style="display:none" class="results-layout">
+            <div class="card results-hero">
+              <h3>Your Fathom</h3>
+              <div class="results-score score-reveal" id="overall-score">0</div>
+              <div class="results-label" id="score-label"></div>
+              <div class="xp-earned" id="xp-earned">+0 XP</div>
+              <div class="progress-bar progress-bar-lg results-xp-bar">
+                <div id="results-xp-bar" class="progress-fill" style="width:0%"></div>
+              </div>
+              <p class="results-xp-text" id="results-xp-text">Level 1 · 0 / 500 XP</p>
+            </div>
+
+            <div class="card results-section">
+              <h3 class="section-title">Score Breakdown</h3>
+              <table class="skill-table" id="skill-table">
+                <thead><tr><th>Skill</th><th>Score</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <div class="grid-2 results-section">
+              <div class="card">
+                <h3 class="section-title">What You Did Well</h3>
+                <div id="strengths-list"></div>
+              </div>
+              <div class="card">
+                <h3 class="section-title">You Could Also…</h3>
+                <div id="improvements-list"></div>
+              </div>
+            </div>
+
+            <div class="card results-section">
+              <h3 class="section-title">For Your Next Attempt</h3>
+              <div class="feedback-card feedback-card--solo">
+                <p id="recommendation"></p>
+              </div>
+            </div>
+
+            <div id="attempt-history-section" class="results-section" style="display:none">
+              <h3 class="section-title" style="text-align:center">Your Progress</h3>
+              <div class="attempt-history" id="attempt-history"></div>
+            </div>
+
+            <div class="results-actions">
+              <button id="next-fathom" class="btn btn-primary btn-lg results-action-btn">Next Fathom</button>
+              <button id="back-to-dashboard" class="btn btn-secondary btn-lg results-action-btn">View Stats</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation"></nav>
+
+  <div id="level-up-modal" class="level-up-modal" role="dialog" aria-label="Level up">
+    <div class="level-up-content card-elevated card">
+      <h2>Level Up!</h2>
+      <p id="level-up-text" style="font-size:1.25rem;color:var(--text-secondary)"></p>
+      <button id="level-up-close" class="btn btn-primary mt-3">Continue</button>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/sfx.js"></script>
+  <script src="/js/practice/prompt.js"></script>
+  <script src="/js/practice/research.js"></script>
+  <script src="/js/practice/speak.js"></script>
+  <script src="/js/practice/results.js"></script>
+  <script src="/js/practice/main.js"></script>
+  <script src="/js/pwa.js"></script>
+</body>
+</html>

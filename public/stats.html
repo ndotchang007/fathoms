@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Fathoms">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#090b0e">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <title>Stats — Fathoms</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <a href="/practice" class="sidebar-logo" aria-label="Fathoms home">
+        <img class="logo-for-dark" src="/assets/logo-dark.png" alt="">
+        <img class="logo-for-light" src="/assets/logo-light.png" alt="">
+      </a>
+      <div class="sidebar-tagline">Fathom anything.</div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Main navigation"></nav>
+      <div class="sidebar-footer">Fathoms</div>
+    </aside>
+
+    <main class="main-content page-enter stats-page">
+      <div class="page-header">
+        <div>
+          <h1>Statistics</h1>
+          <p>Your scores, skills, and progress over time.</p>
+        </div>
+      </div>
+
+      <section class="stats-review-cta card">
+        <div class="stats-review-cta-copy">
+          <p class="stats-kicker">Stats Review</p>
+          <h2>Welcome to your stats! Ready to dive in?</h2>
+          <p>A short three-screen walkthrough of where you stand, how to improve, and what to share.</p>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg" id="start-stats-review">Start review</button>
+      </section>
+
+      <section class="stats-hero card">
+        <div class="stats-hero-main">
+          <p class="stats-kicker">Overall</p>
+          <div class="overall-score-display" id="overall-score">—</div>
+          <p class="stats-hero-label" id="overall-label">Communication score</p>
+        </div>
+        <div class="stats-hero-side" id="stats-highlights"></div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Skills</h3>
+        <div class="stats-skill-list" id="skills-list"></div>
+      </section>
+
+      <div class="stats-charts-grid">
+        <section class="card stats-chart-card">
+          <h3 class="section-title">Skill Map</h3>
+          <div class="chart-frame chart-frame--radar">
+            <div class="chart-container chart-container-lg"><canvas id="skills-radar"></canvas></div>
+          </div>
+        </section>
+        <section class="card stats-chart-card stats-skill-bars-card">
+          <h3 class="section-title">Skill Bars</h3>
+          <div class="chart-frame">
+            <div class="chart-container chart-container-lg"><canvas id="skills-bar"></canvas></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="card stats-chart-card">
+        <div class="stats-section-head">
+          <h3 class="section-title" style="margin:0">Progress Over Time</h3>
+          <div class="time-toggle" role="tablist">
+            <button class="active" data-range="sevenDays" role="tab">7 Days</button>
+            <button data-range="thirtyDays" role="tab">30 Days</button>
+            <button data-range="allTime" role="tab">All Time</button>
+          </div>
+        </div>
+        <div class="chart-frame">
+          <div class="chart-container chart-container-lg"><canvas id="score-chart"></canvas></div>
+        </div>
+      </section>
+
+      <div class="stats-charts-grid">
+        <section class="card stats-chart-card">
+          <h3 class="section-title">XP</h3>
+          <div class="chart-frame">
+            <div class="chart-container"><canvas id="xp-chart"></canvas></div>
+          </div>
+        </section>
+        <section class="card stats-chart-card">
+          <h3 class="section-title">Activity</h3>
+          <div class="chart-frame">
+            <div class="chart-container"><canvas id="activity-chart"></canvas></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h3 class="section-title">Insights</h3>
+        <div id="insights-list" class="stats-insights"></div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Personal Records</h3>
+        <div class="records-grid" id="records-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation"></nav>
+
+  <!-- Stats Review Overlay -->
+  <div id="stats-review" class="stats-review" hidden aria-hidden="true">
+    <div class="stats-review-shell">
+      <div class="stats-review-progress">
+        <div class="tri-progress" id="review-tri-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" aria-label="Review progress">
+          <div class="tri-bar in-progress"><div class="tri-bar-fill"></div></div>
+          <div class="tri-bar empty"><div class="tri-bar-fill"></div></div>
+          <div class="tri-bar empty"><div class="tri-bar-fill"></div></div>
+        </div>
+        <div class="tri-progress-labels">
+          <span class="tri-label active" data-review-step="1">Stats</span>
+          <span class="tri-label" data-review-step="2">Improve</span>
+          <span class="tri-label" data-review-step="3">Share</span>
+        </div>
+        <div class="review-timer-track" aria-hidden="true"><div class="review-timer-fill" id="review-timer-fill"></div></div>
+      </div>
+
+      <button type="button" class="review-nav review-nav-prev" id="review-prev" aria-label="Previous screen"></button>
+      <button type="button" class="review-nav review-nav-next" id="review-next" aria-label="Next screen"></button>
+
+      <div class="stats-review-stage">
+        <section class="review-screen active" data-screen="1" id="review-screen-1">
+          <p class="stats-kicker">Your numbers</p>
+          <h2 class="review-title">Where you stand</h2>
+          <div class="review-score" id="review-overall">—</div>
+          <p class="review-caption" id="review-overall-caption">Overall communication score</p>
+          <div class="review-stat-grid" id="review-stat-grid"></div>
+        </section>
+
+        <section class="review-screen" data-screen="2" id="review-screen-2">
+          <p class="stats-kicker">Next moves</p>
+          <h2 class="review-title">How to improve</h2>
+          <div class="review-improve-list" id="review-improve-list"></div>
+        </section>
+
+        <section class="review-screen" data-screen="3" id="review-screen-3">
+          <p class="stats-kicker">Share</p>
+          <h2 class="review-title">Your Fathoms snapshot</h2>
+          <div class="review-share-card" id="review-share-card"></div>
+          <div class="review-share-actions">
+            <button type="button" class="btn btn-primary" id="review-share-btn">Share</button>
+            <button type="button" class="btn btn-secondary" id="review-copy-btn">Copy text</button>
+            <button type="button" class="btn btn-ghost" id="review-close-btn">Back to stats</button>
+          </div>
+        </section>
+      </div>
+
+      <p class="review-hint">Tap left or right to move · Auto-advances</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/pages/stats.js"></script>
+  <script src="/js/pwa.js"></script>
+</body>
+</html>

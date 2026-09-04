@@ -1,0 +1,33 @@
+{
+  "name": "Fathoms",
+  "short_name": "Fathoms",
+  "description": "Fathom anything. A depth game for curious minds.",
+  "start_url": "/init",
+  "scope": "/",
+  "id": "/fathoms-app-v3",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#090b0e",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/assets/icon-192.png?v=5",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png?v=5",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png?v=5",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

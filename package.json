@@ -1,0 +1,19 @@
+{
+  "name": "fathoms",
+  "version": "1.0.0",
+  "description": "AI-powered knowledge and communication training platform prototype",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "seed": "node server/database/seed.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.122.0",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "uuid": "^11.0.5"
+  }
+}

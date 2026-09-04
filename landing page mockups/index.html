@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fathoms — Landing Page Mockups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body {
+      min-height: 100vh;
+      padding: calc(var(--header-h) + 2.5rem) clamp(1.25rem, 5vw, 3rem) 3rem;
+      background: var(--bg);
+    }
+    .intro { max-width: 640px; margin-bottom: 3rem; }
+    .intro h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .intro p { color: var(--text-secondary); line-height: 1.55; max-width: 46ch; }
+    .intro .note {
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-faint);
+      letter-spacing: 0.06em;
+    }
+
+    .list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      max-width: 820px;
+    }
+    a.item {
+      display: grid;
+      grid-template-columns: 4rem 1fr auto;
+      gap: 1.25rem;
+      align-items: center;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+      color: inherit;
+      transition: padding-left 0.25s;
+    }
+    a.item:hover { padding-left: 0.5rem; }
+    a.item:hover .go { color: var(--text); }
+    .num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-faint);
+    }
+    .item h2 {
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+    .item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .go {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--text-faint);
+    }
+  </style>
+</head>
+<body class="slice--dark">
+  <header class="glass-header">
+    <a class="logo-lockup" href="index.html">
+      <img src="assets/logo.svg" alt="Fathoms logo">
+      <div>
+        <div class="word">Fathoms</div>
+        <div class="slogan">Fathom anything</div>
+      </div>
+    </a>
+    <nav class="glass-nav">
+      <a href="#mockups">Mockups</a>
+      <a href="../public/index.html">Live site</a>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <p class="eyebrow">Concept set · v2</p>
+    <h1>Landing page mockups</h1>
+    <p>Cool gray with a whisper of blue. Liquid glass header, per-slice text selection, Claude-style footer, and placeholder logo. Open any file to review full-page.</p>
+    <p class="note">PALETTE · #090B0E / #EEF1F6 / #6B8CB8 HINT</p>
+  </div>
+
+  <nav class="list" id="mockups">
+    <a class="item" href="01-depth.html">
+      <span class="num">01</span>
+      <div>
+        <h2>Depth</h2>
+        <p>Underwater descent — pressure zones, sonar, animated fathom counter.</p>
+      </div>
+      <span class="go">OPEN →</span>
+    </a>
+    <a class="item" href="02-grecian.html">
+      <span class="num">02</span>
+      <div>
+        <h2>Grecian</h2>
+        <p>Greek monument silhouettes, marble pillars, luxury editorial feel.</p>
+      </div>
+      <span class="go">OPEN →</span>
+    </a>
+    <a class="item" href="03-current.html">
+      <span class="num">03</span>
+      <div>
+        <h2>Current</h2>
+        <p>Flowing knowledge streams — horizontal current lines and protocol cards.</p>
+      </div>
+      <span class="go">OPEN →</span>
+    </a>
+    <a class="item" href="04-strata.html">
+      <span class="num">04</span>
+      <div>
+        <h2>Strata</h2>
+        <p>Geological layers — understanding that builds and compresses over time.</p>
+      </div>
+      <span class="go">OPEN →</span>
+    </a>
+    <a class="item" href="05-meridian.html">
+      <span class="num">05</span>
+      <div>
+        <h2>Meridian</h2>
+        <p>Navigation chart aesthetic — waypoints, crosshairs, celestial grid.</p>
+      </div>
+      <span class="go">OPEN →</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer" style="margin-top: 4rem; margin-left: calc(-1 * clamp(1.25rem, 5vw, 3rem)); margin-right: calc(-1 * clamp(1.25rem, 5vw, 3rem));">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo.svg" alt="">
+          <strong>Fathoms</strong>
+        </div>
+        <p>Fathom anything.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <span>Practice</span>
+        <span>Dashboard</span>
+        <span>Achievements</span>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <span>How it works</span>
+        <span>Protocol</span>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <span>About</span>
+        <span>Contact</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Noah Chang · Developer build</span>
+      <span>Inspired by <a href="https://unprompted.cool" target="_blank" rel="noopener">unprompted.cool</a></span>
+    </div>
+  </footer>
+</body>
+</html>

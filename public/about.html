@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Fathoms">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#090b0e">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>
+    (function () {
+      var standalone = window.matchMedia('(display-mode: standalone)').matches
+        || window.navigator.standalone === true;
+      if (standalone) location.replace('/init');
+    })();
+  </script>
+  <title>About — Fathoms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/landing-depth.css">
+</head>
+<body class="about-body landing-depth slice--dark">
+  <header class="glass-header">
+    <a class="logo-lockup" href="/">
+      <img class="logo-icon" src="/assets/base-logo.png" alt="Fathoms">
+    </a>
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="glass-nav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+    <nav class="glass-nav" id="glass-nav">
+      <a href="/" class="nav-link">Game</a>
+      <a href="/" class="nav-link" id="nav-explore-from-about">Explore</a>
+      <a href="/app" class="nav-link">Mobile</a>
+      <a href="/about" class="nav-link nav-link-active">About</a>
+      <a href="/login" class="nav-link">Log in</a>
+      <a href="/init" class="nav-cta">Sign up</a>
+    </nav>
+  </header>
+
+  <main class="about-page">
+    <article class="about-content">
+      <p class="about-eyebrow">Why this exists</p>
+      <h1>I built Fathoms because I needed it.</h1>
+
+      <div class="about-prose">
+        <p>I've always struggled with speaking. Not just public speaking, but everyday conversation. Putting thoughts into words under pressure, sounding like I actually know what I'm talking about. That part never came naturally to me.</p>
+        <p>And I hate not knowing what other people are talking about. That feeling when everyone's nodding along and you're piecing together half a context clue, hoping nobody asks you a follow-up. I wanted to get better at both: understanding things deeply enough to speak about them, and speaking about them clearly enough to feel confident.</p>
+        <p>So I made Fathoms: a game where you get a random topic, research it, talk it out loud, and see how you did. It's practice disguised as play. No lecture hall, no awkward small talk. Just you, a prompt, and a timer.</p>
+        <p>I built it for people like me who want to get sharper without it feeling like homework. Jump in, fumble, retry, improve. That's the whole point.</p>
+        <p>I'm <a href="https://noachang.vercel.app" target="_blank" rel="noopener">Noah Chang</a>. Fathoms is a side project from my portfolio. If you want to see what else I'm building, that's the place to look.</p>
+      </div>
+    </article>
+
+    <aside class="love-card">
+      <p class="love-eyebrow">With gratitude</p>
+      <h2>Show some love to <a href="https://unprompted.cool" target="_blank" rel="noopener">unprompted.cool</a>!</h2>
+      <p>Fathoms wouldn't exist in this form without it. I drew a lot of inspiration from unprompted.cool, especially the spirit of playful learning and the vibe of building something worth playing with just because it's fun and useful. If you enjoy Fathoms, go check them out and show them some love. Seriously, they helped shape how I think about this project.</p>
+      <a href="https://unprompted.cool" target="_blank" rel="noopener" class="btn btn-secondary">Visit unprompted.cool →</a>
+    </aside>
+
+    <div class="about-actions">
+      <a href="/" class="btn btn-primary btn-lg">Start a fathom</a>
+      <a href="/init" class="btn btn-ghost btn-lg">Track your fathoms</a>
+      <a href="/login" class="btn btn-ghost btn-lg">Log in</a>
+    </div>
+  </main>
+
+  <footer class="landing-footer about-footer">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;max-width:720px;margin:0 auto;">
+      <span>© 2026 <a href="https://noachang.vercel.app" target="_blank" rel="noopener">Noah Chang</a> · Developer build</span>
+      <span>Inspired by <a href="https://unprompted.cool" target="_blank" rel="noopener">unprompted.cool</a></span>
+    </div>
+  </footer>
+
+  <script src="/js/landing-nav.js"></script>
+  <script>
+    document.getElementById('nav-explore-from-about')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      sessionStorage.setItem('fathoms-open-explore', '1');
+      window.location.href = '/';
+    });
+  </script>
+  <script src="/js/pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Fathoms">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#090b0e">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <title>Profile — Fathoms</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <a href="/practice" class="sidebar-logo" aria-label="Fathoms home">
+        <img class="logo-for-dark" src="/assets/logo-dark.png" alt="">
+        <img class="logo-for-light" src="/assets/logo-light.png" alt="">
+      </a>
+      <div class="sidebar-tagline">Fathom anything.</div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Main navigation"></nav>
+      <div class="sidebar-footer">Fathoms</div>
+    </aside>
+
+    <main class="main-content page-enter">
+      <div class="page-header">
+        <h1>Profile</h1>
+        <p>Your stats, skills, and achievements.</p>
+      </div>
+
+      <div class="grid-2 mb-4">
+        <section class="card" style="text-align:center">
+          <div class="avatar avatar-lg" id="profile-avatar" style="margin:0 auto 1rem">A</div>
+          <h2 id="profile-name">Alex</h2>
+          <p id="profile-level" style="color:var(--text-secondary);margin-bottom:1.5rem">Level 6</p>
+          <div class="stat-grid">
+            <div class="stat-item"><div class="stat-value" id="profile-xp">0</div><div class="stat-label">XP</div></div>
+            <div class="stat-item"><div class="stat-value" id="profile-fathoms">0</div><div class="stat-label">Fathoms</div></div>
+            <div class="stat-item"><div class="stat-value" id="profile-streak">0</div><div class="stat-label">Streak</div></div>
+            <div class="stat-item"><div class="stat-value" id="profile-avg">0</div><div class="stat-label">Avg Score</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3 class="section-title">Skill Profile</h3>
+          <div id="profile-skills"></div>
+        </section>
+      </div>
+
+      <section class="card trophy-case" id="trophy-case">
+        <h3 class="section-title">Trophy Case</h3>
+        <div id="achievement-summary" class="stat-grid mb-4"></div>
+        <div class="achievement-grid" id="achievements-grid"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation"></nav>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/achievements.js"></script>
+  <script src="/js/pages/profile.js"></script>
+  <script src="/js/pwa.js"></script>
+</body>
+</html>

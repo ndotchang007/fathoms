@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup 05 — Meridian · Fathoms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    :root { --font-display: "Instrument Sans", sans-serif; }
+
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: calc(var(--header-h) + 2rem) clamp(1.25rem, 5vw, 3rem) 4rem;
+      overflow: hidden;
+      background: #090b0e;
+    }
+
+    .chart {
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: 0.45;
+    }
+    .chart svg {
+      width: 100%; height: 100%;
+    }
+
+    .crosshair {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: min(70vw, 480px); height: min(70vw, 480px);
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(107, 140, 184, 0.15);
+      border-radius: 50%;
+    }
+    .crosshair::before,
+    .crosshair::after {
+      content: "";
+      position: absolute;
+      background: rgba(107, 140, 184, 0.12);
+    }
+    .crosshair::before {
+      left: 50%; top: 0; bottom: 0; width: 1px;
+      transform: translateX(-50%);
+    }
+    .crosshair::after {
+      top: 50%; left: 0; right: 0; height: 1px;
+      transform: translateY(-50%);
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+    .hero .display {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.5rem, 8vw, 4.75rem);
+      margin-bottom: 1rem;
+    }
+    .hero .lead {
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .actions {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .coords-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+    .coords-bar strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
+    }
+
+    .waypoints {
+      border-top: 1px solid var(--border);
+      padding: 6rem clamp(1.25rem, 5vw, 3rem);
+      background: linear-gradient(180deg, #090b0e, #0c1016);
+    }
+    .waypoints h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -0.03em;
+      margin-bottom: 4rem;
+    }
+
+    .waypoint-list {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .waypoint-list::before {
+      content: "";
+      position: absolute;
+      left: 1.1rem; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--blue-hint), rgba(107, 140, 184, 0.1));
+    }
+
+    .waypoint {
+      display: grid;
+      grid-template-columns: 2.25rem 1fr;
+      gap: 1.5rem;
+      padding: 2.5rem 0;
+      min-height: 28vh;
+      align-items: start;
+    }
+    .waypoint .dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--blue-hint);
+      margin-top: 0.35rem;
+      position: relative; z-index: 1;
+      box-shadow: 0 0 0 4px rgba(107, 140, 184, 0.12);
+    }
+    .waypoint h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .waypoint p { color: var(--text-secondary); line-height: 1.55; }
+    .waypoint .coord {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--blue-hint);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+    }
+
+    .horizon.slice--light {
+      min-height: 55vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background: linear-gradient(180deg, #e8ecf2, #d9e0e9);
+      color: #0d1016;
+    }
+    .horizon h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .horizon p { color: #4d5666; margin-bottom: 1.75rem; }
+  </style>
+</head>
+<body class="slice--dark">
+  <header class="glass-header">
+    <a class="logo-lockup" href="index.html">
+      <img src="assets/logo.svg" alt="Fathoms logo">
+      <div>
+        <div class="word">Fathoms</div>
+        <div class="slogan">Fathom anything</div>
+      </div>
+    </a>
+    <nav class="glass-nav">
+      <a href="#waypoints">Chart</a>
+      <a href="#horizon">Start</a>
+      <a href="#" class="nav-cta">Get started</a>
+    </nav>
+  </header>
+
+  <section class="hero slice--dark page-pad">
+    <div class="chart" aria-hidden="true">
+      <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(107,140,184,0.08)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="800" height="800" fill="url(#grid)"/>
+        <circle cx="400" cy="400" r="120" fill="none" stroke="rgba(107,140,184,0.15)" stroke-width="1"/>
+        <circle cx="400" cy="400" r="200" fill="none" stroke="rgba(107,140,184,0.1)" stroke-width="1"/>
+        <circle cx="400" cy="400" r="280" fill="none" stroke="rgba(107,140,184,0.06)" stroke-width="1"/>
+        <line x1="400" y1="80" x2="400" y2="720" stroke="rgba(107,140,184,0.12)" stroke-width="1"/>
+        <line x1="80" y1="400" x2="720" y2="400" stroke="rgba(107,140,184,0.12)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="crosshair" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <p class="eyebrow">Meridian · Navigation · Precision</p>
+      <h1 class="display">Chart your course to mastery.</h1>
+      <p class="lead">Fathoms is your navigational system for learning — plot a topic, follow the protocol, and arrive at true understanding. Fathom anything.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#">Plot course</a>
+        <a class="btn btn-ghost" href="#waypoints">View waypoints</a>
+      </div>
+      <div class="coords-bar" aria-hidden="true">
+        <div><strong>4</strong>STAGES</div>
+        <div><strong>7</strong>SKILLS</div>
+        <div><strong>5</strong>MIN SPEAK</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="waypoints slice--dark" id="waypoints">
+    <h2>Protocol waypoints</h2>
+    <div class="waypoint-list">
+      <article class="waypoint">
+        <div class="dot"></div>
+        <div>
+          <p class="coord">WP-01 · DISCOVER</p>
+          <h3>Acquire bearing</h3>
+          <p>A random topic sets your heading. The journey begins with curiosity.</p>
+        </div>
+      </article>
+      <article class="waypoint">
+        <div class="dot"></div>
+        <div>
+          <p class="coord">WP-02 · RESEARCH</p>
+          <h3>Gather intel</h3>
+          <p>Sources and notes triangulate your position. Context becomes coordinates.</p>
+        </div>
+      </article>
+      <article class="waypoint">
+        <div class="dot"></div>
+        <div>
+          <p class="coord">WP-03 · SPEAK</p>
+          <h3>Transmit position</h3>
+          <p>Spoken clarity confirms you've actually arrived at understanding.</p>
+        </div>
+      </article>
+      <article class="waypoint">
+        <div class="dot"></div>
+        <div>
+          <p class="coord">WP-04 · IMPROVE</p>
+          <h3>Recalibrate</h3>
+          <p>Feedback adjusts your trajectory. Retry and refine the route.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="horizon slice--light" id="horizon">
+    <div>
+      <h2>Fathom anything.</h2>
+      <p>Navigate every topic with intention.</p>
+      <a class="btn btn-primary" href="#">Initialize profile</a>
+    </div>
+  </section>
+
+  <footer class="site-footer slice--dark">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo.svg" alt="">
+          <strong>Fathoms</strong>
+        </div>
+        <p>Fathom anything. Your chart for deeper learning.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#">Practice</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Achievements</a>
+        <span>Stats</span>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="#">How it works</a>
+        <a href="#">Protocol</a>
+        <span>Methodology</span>
+        <span>Research tips</span>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <span>About</span>
+        <span>Careers</span>
+        <span>Press</span>
+        <span>Contact</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Noah Chang · Developer build</span>
+      <span>Inspired by <a href="https://unprompted.cool" target="_blank" rel="noopener">unprompted.cool</a></span>
+    </div>
+  </footer>
+</body>
+</html>

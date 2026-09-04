@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Fathoms">
+  <meta name="application-name" content="Fathoms">
+  <meta name="theme-color" content="#090b0e">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>
+    (function () {
+      var standalone = window.matchMedia('(display-mode: standalone)').matches
+        || window.navigator.standalone === true;
+      if (standalone) location.replace('/init');
+    })();
+  </script>
+  <title>Install — Fathoms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/landing-depth.css">
+</head>
+<body class="app-body landing-depth slice--dark">
+  <header class="glass-header">
+    <a class="logo-lockup" href="/">
+      <img class="logo-icon" src="/assets/base-logo.png" alt="Fathoms">
+    </a>
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="glass-nav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+    <nav class="glass-nav" id="glass-nav">
+      <a href="/" class="nav-link">Game</a>
+      <a href="/" class="nav-link" id="nav-explore-from-app">Explore</a>
+      <a href="/app" class="nav-link nav-link-active">Mobile</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/login" class="nav-link">Log in</a>
+      <a href="/init" class="nav-cta">Sign up</a>
+    </nav>
+  </header>
+
+  <main class="pwa-page">
+    <div class="pwa-hero">
+      <p class="about-eyebrow" id="pwa-eyebrow">Home screen app</p>
+      <h1>Fathoms on your phone.</h1>
+      <p class="pwa-lead">Install Fathoms as an app for faster launches between dives. Same practice, streaks, and feedback — from your home screen.</p>
+
+      <div class="pwa-install-card">
+        <div class="pwa-install-icon" aria-hidden="true">
+          <img src="/assets/icon-512.png?v=5" alt="">
+        </div>
+        <div>
+          <h2>Install Fathoms</h2>
+          <p>Add Fathoms to your home screen for quick access between dives.</p>
+        </div>
+        <button type="button" class="btn btn-primary" id="pwa-install-btn" disabled>Checking install…</button>
+      </div>
+
+      <p class="pwa-note" id="pwa-install-note">Preparing the install flow…</p>
+    </div>
+  </main>
+
+  <footer class="landing-footer about-footer">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;max-width:720px;margin:0 auto;">
+      <span>© 2026 <a href="https://noachang.vercel.app" target="_blank" rel="noopener">Noah Chang</a> · Developer build</span>
+      <span>Inspired by <a href="https://unprompted.cool" target="_blank" rel="noopener">unprompted.cool</a></span>
+    </div>
+  </footer>
+
+  <script src="/js/landing-nav.js"></script>
+  <script src="/js/pwa.js"></script>
+  <script src="/js/pwa-install.js"></script>
+  <script>
+    document.getElementById('nav-explore-from-app')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      sessionStorage.setItem('fathoms-open-explore', '1');
+      window.location.href = '/';
+    });
+  </script>
+</body>
+</html>

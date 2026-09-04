@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Fathoms">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#090b0e">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>
+    (function () {
+      var standalone = window.matchMedia('(display-mode: standalone)').matches
+        || window.navigator.standalone === true;
+      if (standalone) location.replace('/init');
+    })();
+  </script>
+  <title>Fathoms — Fathom anything.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/landing-depth.css">
+</head>
+<body class="landing-body landing-depth slice--dark view-game">
+  <header class="glass-header">
+    <a class="logo-lockup" href="/">
+      <img class="logo-icon" src="/assets/base-logo.png" alt="Fathoms">
+    </a>
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="glass-nav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+    <nav class="glass-nav" id="glass-nav">
+      <button type="button" class="nav-mode-btn" id="btn-game">Game</button>
+      <button type="button" class="nav-mode-btn" id="btn-explore">Explore</button>
+      <a href="/app" class="nav-link">Mobile</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/login" class="nav-link">Log in</a>
+      <a href="/init" class="nav-cta">Sign up</a>
+    </nav>
+  </header>
+
+  <div id="game-view" class="view-layer active" aria-hidden="false">
+    <section class="demo-viewport" id="demo">
+      <div class="demo-shell">
+        <div class="demo-body">
+          <div class="demo-step active" id="demo-step-1">
+            <div class="demo-topic-card" id="demo-topic-card">
+              <span class="badge mb-2" id="demo-badge">Loading topic…</span>
+              <h2 class="demo-topic-title" id="demo-topic-title">…</h2>
+              <p class="demo-topic-prompt" id="demo-topic-prompt"></p>
+              <div class="demo-topic-meta" id="demo-topic-meta" hidden>
+                <span class="badge" id="demo-cat"></span>
+                <span class="badge" id="demo-diff"></span>
+                <span class="badge" id="demo-research-time"></span>
+                <span class="badge">Speaking: 1 min</span>
+              </div>
+              <div class="demo-actions" id="demo-topic-actions" hidden>
+                <button type="button" class="btn btn-primary btn-lg" id="demo-start-research">Start research</button>
+                <button type="button" class="btn btn-secondary btn-lg" id="demo-skip-research">Skip to speaking</button>
+                <button type="button" class="btn btn-ghost" id="demo-another">Another topic</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-step" id="demo-step-2">
+            <div class="demo-research-header">
+              <h3 id="demo-research-title">Research</h3>
+              <div class="timer-display" id="demo-research-timer" aria-live="polite">05:00</div>
+            </div>
+            <div class="demo-research">
+              <div>
+                <input type="search" class="search-box" id="demo-web-search" placeholder="Search these sources…" aria-label="Search topic sources">
+                <div id="demo-search-results" class="search-results"></div>
+                <h4 class="section-title">Sources</h4>
+                <div id="demo-sources"></div>
+              </div>
+              <div>
+                <h4 class="section-title">Notes</h4>
+                <textarea class="demo-notes" id="demo-notes" placeholder="Take notes here…" aria-label="Research notes"></textarea>
+                <div class="notes-saved" id="demo-notes-status"></div>
+              </div>
+            </div>
+            <div class="demo-step-footer">
+              <button type="button" class="btn btn-primary btn-lg" id="demo-ready-speak">Ready to speak</button>
+            </div>
+          </div>
+
+          <div class="demo-step" id="demo-step-3">
+            <div class="demo-speak">
+              <h3>Explain your topic</h3>
+              <p id="demo-speak-status">One minute on the clock. Talk it out.</p>
+              <div class="demo-timer" id="demo-timer">01:00</div>
+              <div class="demo-actions">
+                <button type="button" class="btn btn-primary btn-lg" id="demo-speak-start">Start</button>
+                <button type="button" class="btn btn-secondary btn-lg" id="demo-speak-done" hidden>I'm done</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-step" id="demo-step-4">
+            <div class="demo-locked">
+              <div class="lock-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="5" y="11" width="14" height="10" rx="2"/>
+                  <path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+                </svg>
+              </div>
+              <h3>Sign up for feedback</h3>
+              <p>Your run is complete. Create a free profile to unlock AI scoring, XP, streaks, and detailed feedback.</p>
+              <div class="score-preview" aria-hidden="true">
+                <div><span>Clarity</span><strong>—</strong></div>
+                <div><span>Depth</span><strong>—</strong></div>
+                <div><span>Reasoning</span><strong>—</strong></div>
+              </div>
+              <div class="demo-actions">
+                <a href="/init" class="btn btn-primary">Track your fathoms</a>
+                <button type="button" class="btn btn-ghost" id="demo-play-again">Play again</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="explore-view" class="view-layer" aria-hidden="true">
+    <section class="landing-hero">
+      <div class="landing-hero-inner">
+        <p class="landing-eyebrow">Depth game · Knowledge · Communication</p>
+        <h1>Fathom anything.</h1>
+        <p class="landing-lead">Get a random topic, research it, talk it out loud, and see how deep you can go. A game for people who want to understand more and say it better.</p>
+        <div class="landing-hero-actions">
+          <button type="button" class="btn btn-primary btn-lg" data-show-game>Start a fathom</button>
+          <a href="/init" class="btn btn-secondary btn-lg">Track your fathoms</a>
+        </div>
+        <p class="landing-hero-note">No account needed to try the demo.</p>
+      </div>
+    </section>
+
+    <section class="descent-zone" id="descent-zone">
+      <div class="descent-sticky">
+        <div class="anchor-hud" id="anchor-hud" aria-hidden="true">
+          <div class="depth-rail">
+            <div class="depth-rail-fill" id="depth-rail-fill"></div>
+            <div class="depth-rail-marker" id="depth-rail-marker"></div>
+          </div>
+          <div class="depth-card">
+            <svg class="anchor-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="5" r="2"/>
+              <path d="M12 7v8M8 11h8M6 15c0 3.3 2.7 6 6 6s6-2.7 6-6"/>
+            </svg>
+            <div class="depth-hud">
+              <span class="depth-label">Depth</span>
+              <strong><span id="depth-value">0</span><span class="depth-unit"> fathoms</span></strong>
+              <span class="zone-label" id="zone-label">Surface</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="descent-panels">
+          <article class="app-panel">
+            <p class="roman">I · Prompt</p>
+            <h3>Random topic roulette</h3>
+            <p>Every dive starts with a shuffle. Science, history, tech. Whatever lands, you run it.</p>
+            <div class="mini-ui">
+              <div class="mini-stat"><span>Categories</span><span>12+</span></div>
+              <div class="mini-stat"><span>Topics</span><span>80+</span></div>
+            </div>
+          </article>
+          <article class="app-panel">
+            <p class="roman">II · Research</p>
+            <h3>Source deck + notes</h3>
+            <p>Skim bundled sources or bail early. Play how you want.</p>
+            <div class="mini-ui">
+              <div class="mini-stat"><span>Timer</span><span>5:00 optional</span></div>
+              <div class="mini-stat"><span>Notes</span><span>Auto-saved</span></div>
+            </div>
+          </article>
+          <article class="app-panel">
+            <p class="roman">III · Speak</p>
+            <h3>One-minute pressure round</h3>
+            <p>Explain the topic out loud before the clock hits zero.</p>
+            <div class="mini-ui">
+              <div class="mini-stat"><span>Demo timer</span><span>1:00</span></div>
+              <div class="mini-stat"><span>Full game</span><span>5:00 + mic</span></div>
+            </div>
+          </article>
+          <article class="app-panel">
+            <p class="roman">IV · Results</p>
+            <h3>Score, XP, retry</h3>
+            <p>Sign up to unlock AI feedback, XP, achievements, and instant retry.</p>
+            <div class="mini-ui">
+              <div class="mini-stat"><span>Stats</span><span>Streaks & levels</span></div>
+              <div class="mini-stat"><span>Achievements</span><span>Unlockables</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="final-cta-inner">
+        <h2>Stop knowing, start <em class="fathoming">fathoming</em></h2>
+        <p>Create a free profile and unlock feedback, XP, and the full game.</p>
+        <div class="landing-hero-actions">
+          <button type="button" class="btn btn-primary btn-lg" data-show-game>Start a fathom</button>
+          <a href="/init" class="btn btn-secondary btn-lg">Track your fathoms</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="landing-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="row">
+            <img src="/assets/base-logo.png" alt="">
+            <strong>Fathoms</strong>
+          </div>
+          <p>Fathom anything. A depth game for curious minds.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/practice">Practice</a>
+          <a href="/stats">Stats</a>
+          <a href="/profile#trophy-case">Achievements</a>
+          <a href="/app">Mobile app</a>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <button type="button" class="footer-link-btn" data-show-game>Start a fathom</button>
+          <a href="/about">About</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <span>Careers</span>
+          <span>Press</span>
+          <span>Contact</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 <a href="https://noachang.vercel.app" target="_blank" rel="noopener">Noah Chang</a> · Developer build</span>
+        <span>Inspired by <a href="https://unprompted.cool" target="_blank" rel="noopener">unprompted.cool</a></span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sfx.js"></script>
+  <script src="/js/landing-guest.js"></script>
+  <script src="/js/landing-nav.js"></script>
+  <script src="/js/landing.js"></script>
+  <script src="/js/pwa.js"></script>
+</body>
+</html>
